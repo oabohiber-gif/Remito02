@@ -72,7 +72,7 @@
             },
             "Egypt": {
                 tiers: [{ max: 500, add: 20 }],
-                pctRate: 0.04, usdPayPct: 0.05,
+                pctRate: 0.035, usdPayPct: 0.045,
                 fees: [{ max: 1000, amount: 7 }],
                 feePct: 0.007
             },

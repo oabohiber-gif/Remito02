@@ -1785,20 +1785,20 @@ function ewireDisplayPhone(value) {
 function ewireAgentMessage(item) {
     return [
         `*TRANSFER AUTHORIZATION*`,
-        `🔢 *Ref:* \`${item.reference}\` | 📅 *Date:* ${ewireMessageDate(item.date)}`,
+        `🔢 *الرقم المرجعي:* \`${item.reference}\` | 📅 *التاريخ:* ${ewireMessageDate(item.date)}`,
         ``,
-        `*📥 RECEIVER DETAILS (${String(item.country || '').toUpperCase()})*`,
-        `👤 Name: ${item.beneficiaryName}`,
-        `📞 Mobile: ${ewireDisplayPhone(item.beneficiaryPhone)}`,
-        `📍 City/Area: ${item.city}`,
-        `📱 Payout: ${item.agentPaymentMethod}`,
-        `💵 *Amount to Pay:* *${ewireCurrencyAmount(item.receiveAmount, item.ccy)}*`,
+        `*📥 تفاصيل المستلم (${String(item.country || '').toUpperCase()})*`,
+        `👤 الاسم: ${item.beneficiaryName}`,
+        `📞 الهاتف: ${ewireDisplayPhone(item.beneficiaryPhone)}`,
+        `📍 المدينة/المنطقة: ${item.city}`,
+        `📱 طريقة الدفع: ${item.agentPaymentMethod}`,
+        `💵 *المبلغ :* *${ewireCurrencyAmount(item.receiveAmount, item.ccy)}*`,
         ``,
-        `*📤 SENDER & FEE DETAILS*`,
-        `👤 Name: ${item.senderName}`,
-        `💳 Method: ${item.senderPaymentMethod}`,
-        `🏷️ *Agent Fees:* ${ewireCurrencyAmount(item.agentFees, item.ccy)}`,
-        item.pickupLocation ? `📌 Pick-Up Location: ${item.pickupLocation}` : null
+        `*📤 تفاصيل المرسل والرسوم*`,
+        `👤 الاسم: ${item.senderName}`,
+        `💳 طريقة الدفع: ${item.senderPaymentMethod}`,
+        `🏷️ *رسوم الوكيل:* ${ewireCurrencyAmount(item.agentFees, item.ccy)}`,
+        item.pickupLocation ? `📌 موقع الاستلام: ${item.pickupLocation}` : null
     ].filter(line => line !== null).join('\n');
 }
 

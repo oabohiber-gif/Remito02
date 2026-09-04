@@ -1784,7 +1784,7 @@ function ewireDisplayPhone(value) {
 
 function ewireAgentMessage(item) {
     return [
-        `🟢 *TRANSFER AUTHORIZATION* 🟢`,
+        `*TRANSFER AUTHORIZATION*`,
         `🔢 *Ref:* \`${item.reference}\` | 📅 *Date:* ${ewireMessageDate(item.date)}`,
         ``,
         `*📥 RECEIVER DETAILS (${String(item.country || '').toUpperCase()})*`,
@@ -1797,7 +1797,7 @@ function ewireAgentMessage(item) {
         `*📤 SENDER & FEE DETAILS*`,
         `👤 Name: ${item.senderName}`,
         `💳 Method: ${item.senderPaymentMethod}`,
-        `🏷️ *Agent Fees:* ${ewireCurrencyAmount(item.agentFees, item.ccy)} (Teller: ${item.teller})`,
+        `🏷️ *Agent Fees:* ${ewireCurrencyAmount(item.agentFees, item.ccy)}`,
         item.pickupLocation ? `📌 Pick-Up Location: ${item.pickupLocation}` : null
     ].filter(line => line !== null).join('\n');
 }
@@ -1807,11 +1807,11 @@ function ewireSenderMessage(item) {
     if (Number(item.paidCad) > 0) paidLines.push(`💵 *Paid Amount:* ${ewireCurrencyAmount(item.paidCad, 'CAD')}`);
     if (Number(item.paidUsd) > 0) paidLines.push(`💵 *Paid Amount:* ${ewireCurrencyAmount(item.paidUsd, 'USD')}`);
     return [
-        `🟠 *TRANSFER CONFIRMATION* 🟠`,
+        `*TRANSFER CONFIRMATION*`,
         `🔢 *Ref:* \`${item.reference}\` | 📅 *Date:* ${ewireMessageDate(item.date)}`,
         ``,
         `👋 Hello ${item.senderName},`,
-        `✅ Your transfer has been recorded successfully.`,
+        `Your transfer has been recorded successfully.`,
         ``,
         `*📥 RECEIVER DETAILS*`,
         `👤 Name: ${item.beneficiaryName}`,
@@ -1824,10 +1824,9 @@ function ewireSenderMessage(item) {
         `*📤 PAYMENT DETAILS*`,
         ...paidLines,
         `💳 Method: ${item.senderPaymentMethod}`,
-        `🧾 Teller: ${item.teller}`,
         ``,
         `🔐 Please keep reference \`${item.reference}\` for your records.`,
-        `🙏 Thank you for choosing Remito.`
+        `🙏 Thank you for choosing us.`
     ].filter(line => line !== null).join('\n');
 }
 
